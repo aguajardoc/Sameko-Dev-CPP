@@ -130,6 +130,7 @@ int main() {
     snippets: [
         { trigger: 'hello', name: 'Hello World', content: '#include <iostream>\nusing namespace std;\n\nint main() {\n\tcout << "Hello World!";\n\treturn 0;\n}', isBuiltin: true },
     ],
+    filePathRules: [],
     discord: {
         enabled: true
     },

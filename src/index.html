@@ -323,6 +323,10 @@
                             <svg class="ico" data-icon="code" data-weight="duo" data-alt="fill" width="16" height="16"><use href="#i-code-duo"/><use class="ico-alt" href="#i-code-fill"/></svg>
                             Snippets
                         </button>
+                        <button class="settings-tab" data-tab="file-paths">
+                            <svg class="ico" data-icon="folder-simple" data-weight="duo" data-alt="fill" width="16" height="16"><use href="#i-folder-simple-duo"/><use class="ico-alt" href="#i-folder-simple-fill"/></svg>
+                            File Paths
+                        </button>
                         <button class="settings-tab" data-tab="discord">
                             <svg class="ico" data-icon="discord-logo" data-weight="duo" data-alt="fill" width="16" height="16"><use href="#i-discord-logo-duo"/><use class="ico-alt" href="#i-discord-logo-fill"/></svg>
                             Discord
@@ -729,6 +733,24 @@
                                 </button>
                                 <div class="snippets-list-container">
                                     <div id="snippets-list"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File Paths Tab -->
+                        <div class="settings-panel" id="panel-file-paths">
+                            <h3>Filepath Rules</h3>
+                            <p class="setting-desc">
+                                Define regex rules to route problems parsed using Competitive Companion to custom file paths.
+                            </p>
+
+                            <div class="setting-group" style="display: block;">
+                                <button id="btn-add-rule">
+                                    <svg class="ico" data-icon="plus" width="14" height="14"><use href="#i-plus"/></svg>
+                                    Add New Rule
+                                </button>
+                                <div class="rules-list-container snippets-list-container">
+                                    <div id="rules-list"></div>
                                 </div>
                             </div>
                         </div>

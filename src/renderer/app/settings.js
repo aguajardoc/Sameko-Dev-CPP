@@ -37,6 +37,7 @@ function loadSettings() {
                 template: { ...DEFAULT_SETTINGS.template, ...saved.template },
                 keybindings: { ...DEFAULT_SETTINGS.keybindings, ...saved.keybindings },
                 snippets: saved.snippets || DEFAULT_SETTINGS.snippets,
+                filePathRules: saved.filePathRules || DEFAULT_SETTINGS.filePathRules || [],
                 localHistory: { ...DEFAULT_SETTINGS.localHistory, ...saved.localHistory },
                 discord: { ...DEFAULT_SETTINGS.discord, ...saved.discord },
                 updates: { ...DEFAULT_SETTINGS.updates, ...saved.updates }
@@ -160,8 +161,15 @@ function initSettings() {
             updateThemePreview();
 
             // Refresh snippets list if switching to snippets tab
-            if (tab.dataset.tab === 'snippets' && typeof renderSnippetsList === 'function') {
-                renderSnippetsList();
+            if (tab.dataset.tab === 'snippets') {
+                if (window.snippetManager) window.snippetManager.render();
+                else if (typeof renderSnippetsList === 'function') renderSnippetsList();
+            }
+
+            // Refresh filepath rules list if switching to file-paths tab
+            if (tab.dataset.tab === 'file-paths') {
+                if (window.filePathRuleManager) window.filePathRuleManager.render();
+                else if (typeof renderFilePathRules === 'function') renderFilePathRules();
             }
 
             // Initialize marketplace carousel when opening appearance tab
@@ -765,8 +773,16 @@ function openSettings() {
     updateThemePreview();
 
 
-    if (typeof renderSnippetsList === 'function') {
+    if (window.snippetManager) {
+        window.snippetManager.render();
+    } else if (typeof renderSnippetsList === 'function') {
         renderSnippetsList();
+    }
+
+    if (window.filePathRuleManager) {
+        window.filePathRuleManager.render();
+    } else if (typeof renderFilePathRules === 'function') {
+        renderFilePathRules();
     }
 
     const overlay = document.getElementById('settings-overlay');

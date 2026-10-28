@@ -948,6 +948,33 @@
             </div>
         </div>
 
+        <!-- ===== FILEPATH RULE EDITOR MODAL ===== -->
+        <div class="snippet-editor-modal rule-editor-modal" id="rule-editor-modal">
+            <div class="snippet-editor-overlay rule-editor-overlay"></div>
+            <div class="snippet-editor-container rule-editor-container">
+                <div class="snippet-editor-header rule-editor-header">
+                    <h2 id="rule-editor-title">Edit Filepath Rule</h2>
+                    <button class="btn-close-snippet-editor btn-close-rule-editor" id="btn-close-rule-editor">
+                        <svg class="ico" data-icon="x" width="20" height="20"><use href="#i-x"/></svg>
+                    </button>
+                </div>
+                <div class="snippet-editor-body rule-editor-body">
+                    <div class="snippet-field rule-field">
+                        <label for="rule-regex-input">Regex Pattern</label>
+                        <input type="text" id="rule-regex-input" placeholder="e.g., Codeforces|AtCoder" />
+                    </div>
+                    <div class="snippet-field rule-field">
+                        <label for="rule-filepath-input">Destination Filepath</label>
+                        <input type="text" id="rule-filepath-input" placeholder="e.g., ~/cp/$1/$2.cpp" />
+                    </div>
+                </div>
+                <div class="snippet-editor-footer rule-editor-footer">
+                    <button class="btn-secondary" id="btn-cancel-rule">Cancel</button>
+                    <button class="btn-primary" id="btn-save-rule">Save Rule</button>
+                </div>
+            </div>
+        </div>
+
         <!-- ===== CONFIRM DIALOG ===== -->
         <div class="confirm-dialog-overlay" id="confirm-dialog-overlay"></div>
         <div class="confirm-dialog" id="confirm-dialog">
@@ -1214,7 +1241,9 @@
     <script src="renderer/boot.js"></script>
     <script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
     <script src="features/suggestions/cpp-suggestions.js"></script>
+    <script src="renderer/ui/crud-modal-manager.js"></script>
     <script src="features/snippets/snippet-editor.js"></script>
+    <script src="features/filepath-rules/filepath-rules.js"></script>
     <script src="renderer/ui/theme-tokens.js"></script>
     <script src="renderer/ui/color-registry.js"></script>
     <script src="renderer/ui/theme-manager.js"></script>
